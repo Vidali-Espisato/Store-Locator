@@ -2,7 +2,7 @@
 
 ### Introduction
 
-A web-based app that utilizes the Google Maps API using JavaScript. An individual can enter a Pin-Code (or a Zip-Code) and the information of stores located in the periphery of that particular area.
+A web-based app that utilizes the Google Maps API using JavaScript. An individual can enter a Pin-Code (or a Zip-Code) and can get the information of stores located in the periphery of that particular area.
 
 ### Technologies used
 
