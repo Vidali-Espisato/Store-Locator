@@ -12,7 +12,7 @@ A web-based app that utilizes the Google Maps API using JavaScript. An individua
 
 ### Wireframe
 
-![Wireframe](./StoreLocatorWireframe.jpg)
+![Wireframe](./StoreLocatorWireframe.png)
 
 ### Usage
 
