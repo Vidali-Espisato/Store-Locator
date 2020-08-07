@@ -68,9 +68,9 @@ function createMarker(latlng, name, address, index) {
     position: latlng,
     label: index.toString(),
   });
-  // google.maps.event.addEventListener(marker, "click", function () {
-  //   // infoWindow.setContent(html);
-  //   // infoWindow.open(map, marker);
-  // });
+  google.maps.event.addListener(marker, "click", function () {
+    infoWindow.setContent(html);
+    infoWindow.open(map, marker);
+  });
   markers.push(marker);
 }
