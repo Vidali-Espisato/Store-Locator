@@ -19,16 +19,14 @@ function initMap() {
 
 function displayStores() {
   var storeHTML = "";
-  var count = 0;
-  stores.forEach(function (store) {
-    count++;
+  stores.forEach(function (store, index) {
     var address = store["addressLines"];
     var phone = store["phoneNumber"];
     storeHTML += `
         <div class="store-container">
           <div class="store-number-container">
             <div class="store-number">
-              ${count}
+              ${index + 1}
             </div>
           </div>
           <div class="store-info-container">
@@ -42,6 +40,7 @@ function displayStores() {
       `;
     document.querySelector(".stores-list").innerHTML = storeHTML;
   });
+  setOnClickListener();
 }
 
 function showStoresMarkers() {
@@ -94,4 +93,13 @@ function createMarker(latlng, name, address, openStatusText, phone) {
     infoWindow.open(map, marker);
   });
   markers.push(marker);
+}
+
+function setOnClickListener() {
+  storeElements = document.querySelectorAll(".store-container");
+  storeElements.forEach(function (storeElement, index) {
+    storeElement.addEventListener("click", function () {
+      new google.maps.event.trigger(markers[index], "mouseover");
+    });
+  });
 }

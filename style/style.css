@@ -78,10 +78,16 @@ body {
   border-bottom: 1px solid #979797;
   display: flex;
   margin: 0 20px;
+  cursor: pointer;
 }
 .store-info-container {
   flex-grow: 1;
   margin-left: 20px;
+}
+.store-info-container:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+  margin: 10px 0;
 }
 .store-address {
   font-size: 16px;
