@@ -45,30 +45,51 @@ function displayStores() {
 }
 
 function showStoresMarkers() {
-  var count = 0;
   var bounds = new google.maps.LatLngBounds();
   stores.forEach(function (store) {
-    count++;
     var name = store["name"];
     var address = store["addressLines"][0];
     var latlng = new google.maps.LatLng(
       store["coordinates"]["latitude"],
       store["coordinates"]["longitude"]
     );
+    var openStatusText = store["openStatusText"];
+    var phone = store["phoneNumber"];
     bounds.extend(latlng);
-    createMarker(latlng, name, address, count);
+    createMarker(latlng, name, address, openStatusText, phone);
   });
   map.fitBounds(bounds);
 }
 
-function createMarker(latlng, name, address, index) {
-  var html = "<b>" + name + "</b> <br/>" + address;
+function createMarker(latlng, name, address, openStatusText, phone) {
+  var html = `<div class="store-info-window">
+                <div class="store-info-name">
+                  ${name}
+                </div>
+                <div class="store-info-sub">
+                  <div class="store-info-address">
+                    <div class="store-icons">
+                      <i class="fas fa-street-view"></i>
+                    </div>
+                    ${address}
+                  </div>
+                  <div class="store-info-phone">
+                    <div class="store-icons">
+                      <i class="fas fa-phone-alt"></i>
+                    </div>
+                    ${phone}
+                  </div>
+                <span class="store-info-status">
+                  ${openStatusText}
+                </span>
+                  </div>
+                
+              </div>`;
   var marker = new google.maps.Marker({
     map: map,
     position: latlng,
-    label: index.toString(),
   });
-  google.maps.event.addListener(marker, "click", function () {
+  google.maps.event.addListener(marker, "mouseover", function () {
     infoWindow.setContent(html);
     infoWindow.open(map, marker);
   });

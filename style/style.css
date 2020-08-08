@@ -3,6 +3,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 #map {
   width: 100%;
@@ -17,7 +18,7 @@ body {
   text-transform: uppercase;
   top: 50px;
   left: 100px;
-  text-shadow: 2px 2px 5px black;
+  text-shadow: 3px 3px 5px black;
 }
 .search-container {
   position: absolute;
@@ -29,6 +30,7 @@ body {
   left: 100px;
   border-radius: 25px;
   display: flex;
+  box-shadow: 5px 5px 10px black;
 }
 .search {
   display: flex;
@@ -63,6 +65,7 @@ body {
   z-index: 1001;
   overflow-y: hidden;
   display: flex;
+  box-shadow: 5px 5px 10px black;
 }
 .stores-list {
   flex-grow: 1;
@@ -109,4 +112,40 @@ body {
   color: #b5adad;
   font-size: 12px;
   box-shadow: 2px 2px 4px #b5adad;
+}
+.store-info-window {
+  min-width: 350px;
+  font-size: 16px;
+}
+.store-info-name {
+  font-size: 20px;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 5px;
+  border-bottom: 1px solid #00000029;
+}
+.store-info-status {
+  float: right;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 15px;
+}
+.store-info-sub {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.09);
+  border-radius: 5px;
+  font-weight: 300;
+}
+.store-info-address {
+  padding-bottom: 6px;
+}
+.store-icons {
+  height: 20px;
+  width: 22px;
+  border-radius: 50%;
+  background-color: rgb(0, 119, 255);
+  font-size: 15px;
+  color: honeydew;
+  text-align: center;
+  margin-right: 5px;
+  display: inline-block;
 }
