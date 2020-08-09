@@ -46,18 +46,20 @@ function displayStores(stores) {
     var phone = store["phoneNumber"];
     storeHTML += `
         <div class="store-container">
-          <div class="store-number-container">
-            <div class="store-number">
-              ${index + 1}
+          <div class="store-background">  
+            <div class="store-number-container">
+              <div class="store-number">
+                ${index + 1}
+              </div>
             </div>
-          </div>
-          <div class="store-info-container">
-            <div class="store-address">
-              <span>${address[0]}</span>
-              <span>${address[1]}</span>
+            <div class="store-info-container">
+              <div class="store-address">
+                <span>${address[0]}</span>
+                <span>${address[1]}</span>
+              </div>
+              <div class="store-contact">${phone}</div>
             </div>
-            <div class="store-contact">${phone}</div>
-          </div>
+          </div>  
         </div>
       `;
     document.querySelector(".stores-list").innerHTML = storeHTML;

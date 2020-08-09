@@ -22,7 +22,7 @@ body {
 }
 .search-container {
   position: absolute;
-  width: 300px;
+  width: 350px;
   height: 50px;
   z-index: 101;
   background-color: #454e53;
@@ -55,7 +55,7 @@ body {
   outline: none;
 }
 .stores-list-container {
-  width: 300px;
+  width: 350px;
   position: absolute;
   background-color: white;
   border-radius: 25px;
@@ -76,18 +76,23 @@ body {
 }
 .store-container {
   border-bottom: 1px solid #979797;
-  display: flex;
   margin: 0 20px;
   cursor: pointer;
+}
+.store-background {
+  display: flex;
+  flex-grow: 1;
+  margin: 12px 0;
+  padding: 0 8px;
+  border-radius: 18px;
+  transition: all 0.2s ease-in-out;
+}
+.store-background:hover {
+  background-color: rgba(0, 0, 0, 0.09);
 }
 .store-info-container {
   flex-grow: 1;
   margin-left: 20px;
-}
-.store-info-container:hover {
-  background-color: rgba(0, 0, 0, 0.09);
-  border-radius: 10px;
-  margin: 10px 0;
 }
 .store-address {
   font-size: 16px;
