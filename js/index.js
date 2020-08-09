@@ -2,10 +2,6 @@ var map;
 var markers = [];
 var infoWindow;
 
-window.onload = function () {
-  displayStores();
-};
-
 function initMap() {
   var losAngeles = { lat: 34.06338, lng: -118.35808 };
   map = new google.maps.Map(document.getElementById("map"), {
@@ -14,10 +10,36 @@ function initMap() {
     mapTypeId: "roadmap",
   });
   infoWindow = new google.maps.InfoWindow();
-  showStoresMarkers();
+  searchStore();
 }
 
-function displayStores() {
+function searchStore() {
+  var foundStores = [];
+  var zippin = document.getElementById("zippin-input").value;
+  if (zippin) {
+    stores.forEach(function (store) {
+      if (zippin == store["address"]["postalCode"].substring(0, 5)) {
+        foundStores.push(store);
+      }
+    });
+  } else {
+    foundStores = stores;
+  }
+  clearLocations();
+  displayStores(foundStores);
+  showStoresMarkers(foundStores);
+  setOnClickListener();
+}
+
+function clearLocations() {
+  infoWindow.close();
+  markers.forEach(function (marker) {
+    marker.setMap(null);
+  });
+  markers.length = 0;
+}
+
+function displayStores(stores) {
   var storeHTML = "";
   stores.forEach(function (store, index) {
     var address = store["addressLines"];
@@ -40,10 +62,9 @@ function displayStores() {
       `;
     document.querySelector(".stores-list").innerHTML = storeHTML;
   });
-  setOnClickListener();
 }
 
-function showStoresMarkers() {
+function showStoresMarkers(stores) {
   var bounds = new google.maps.LatLngBounds();
   stores.forEach(function (store) {
     var name = store["name"];
@@ -78,11 +99,10 @@ function createMarker(latlng, name, address, openStatusText, phone) {
                     </div>
                     ${phone}
                   </div>
-                <span class="store-info-status">
-                  ${openStatusText}
-                </span>
-                  </div>
-                
+                  <span class="store-info-status">
+                      ${openStatusText}
+                  </span>
+                </div>
               </div>`;
   var marker = new google.maps.Marker({
     map: map,

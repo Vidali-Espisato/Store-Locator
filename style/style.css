@@ -155,3 +155,6 @@ body {
   margin-right: 5px;
   display: inline-block;
 }
+.search i {
+  cursor: pointer;
+}
