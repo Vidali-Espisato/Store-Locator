@@ -12,8 +12,13 @@ A web-based app that utilizes the Google Maps API using JavaScript. An individua
 
 ### Wireframe
 
-![Wireframe](./StoreLocatorWireframe.png)
+![Wireframe](./wireframe.png)
 
 ### Usage
 
 Just clone or download the repository and open the index.html file in a browser.
+You can visit the link in the description for a demo.
+
+### Screenshot
+
+![Screenshot](./screenshot.png)
